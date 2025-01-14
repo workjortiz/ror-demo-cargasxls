@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  short_code: 1
+  long_code: MyString
+  description: MyString
+  base64_code: MyString
+  brand: one
+  unit_measure: one
+
+two:
+  short_code: 1
+  long_code: MyString
+  description: MyString
+  base64_code: MyString
+  brand: two
+  unit_measure: two
