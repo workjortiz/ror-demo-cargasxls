@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_14_043749) do
   end
 
   create_table "unit_measures", charset: "latin1", force: :cascade do |t|
-    t.string "name"
-    t.string "iso_code"
+    t.string "name", limit: 120
+    t.string "iso_code", limit: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
