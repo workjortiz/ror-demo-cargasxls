@@ -1,0 +1,27 @@
+<%= form_with(model: unit_measure) do |form| %>
+  <% if unit_measure.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(unit_measure.errors.count, "error") %> prohibited this unit_measure from being saved:</h2>
+
+      <ul>
+        <% unit_measure.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :iso_code, style: "display: block" %>
+    <%= form.text_field :iso_code %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

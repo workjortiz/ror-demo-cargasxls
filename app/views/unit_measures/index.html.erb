@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Unit measures" %>
+
+<h1>Unit measures</h1>
+
+<div id="unit_measures">
+  <% @unit_measures.each do |unit_measure| %>
+    <%= render unit_measure %>
+    <p>
+      <%= link_to "Show this unit measure", unit_measure %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New unit measure", new_unit_measure_path %>

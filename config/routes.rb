@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :unit_measures
+  resources :brands
   resources :countries
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
