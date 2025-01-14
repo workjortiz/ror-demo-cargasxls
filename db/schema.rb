@@ -10,5 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 0) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_14_042207) do
+  create_table "countries", charset: "latin1", force: :cascade do |t|
+    t.string "name", limit: 120
+    t.string "iso_code", limit: 3
+    t.integer "region_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end
