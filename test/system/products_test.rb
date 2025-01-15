@@ -14,11 +14,11 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "New product"
 
-    fill_in "Base64 code", with: @product.base64_code
+    fill_in "Base code64", with: @product.base_code64
     fill_in "Brand", with: @product.brand_id
     fill_in "Description", with: @product.description
     fill_in "Long code", with: @product.long_code
-    fill_in "Short code", with: @product.short_code
+    fill_in "Shot code", with: @product.shot_code
     fill_in "Unit measure", with: @product.unit_measure_id
     click_on "Create Product"
 
@@ -30,11 +30,11 @@ class ProductsTest < ApplicationSystemTestCase
     visit product_url(@product)
     click_on "Edit this product", match: :first
 
-    fill_in "Base64 code", with: @product.base64_code
+    fill_in "Base code64", with: @product.base_code64
     fill_in "Brand", with: @product.brand_id
     fill_in "Description", with: @product.description
     fill_in "Long code", with: @product.long_code
-    fill_in "Short code", with: @product.short_code
+    fill_in "Shot code", with: @product.shot_code
     fill_in "Unit measure", with: @product.unit_measure_id
     click_on "Update Product"
 
