@@ -1,0 +1,27 @@
+<style>
+    header {
+        background-color: #4CAF50;
+        padding: 10px 20px;
+        text-align: center;
+    }
+    nav {
+        display: inline-block;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        transition: background-color 0.3s;
+    }
+    nav a:hover {
+        background-color:rgb(136, 114, 15);
+    }
+</style>
+
+<nav>
+    <%= link_to 'Home', shared_home_path %>
+    <%= link_to 'Products', products_path %>
+    <%= link_to 'Brands', brands_path %>
+    <%= link_to 'Unit Measures', unit_measures_path %>
+    <%= link_to 'Countries', countries_path %>
+</nav>
