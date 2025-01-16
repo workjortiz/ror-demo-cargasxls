@@ -10,9 +10,13 @@
 
 # [MODELS]
 # rails g Country name:string iso_code:string region_code:integer
-# rails g Brand 
+# rails g Brand name:string code:string country:reference
 # rails g UnitMeasure name:string iso_code:string
-# rails g Product r
+# rails g Product short_code:integer long_code:string description:string base64_code: string brand:reference unit_measure:reference
+
+# SOURCE
+# ISO COUNTRIES: https://www.iban.com/country-codes
+# DIAL REGION CODE: https://countrycode.org/
 
 
 Product.destroy_all
