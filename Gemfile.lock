@@ -54,6 +54,8 @@ GEM
       activemodel (= 7.2.2.1)
       activesupport (= 7.2.2.1)
       timeout (>= 0.4.0)
+    activerecord-import (2.0.0)
+      activerecord (>= 4.2)
     activestorage (7.2.2.1)
       actionpack (= 7.2.2.1)
       activejob (= 7.2.2.1)
@@ -215,6 +217,9 @@ GEM
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.0)
+    roo (2.10.1)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rubocop (1.70.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -304,6 +309,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-import (= 2.0.0)
   bootsnap
   brakeman
   capybara
@@ -314,6 +320,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
+  roo (= 2.10.1)
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
@@ -321,7 +328,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
-  will_paginate (~> 4.0)
+  will_paginate (= 4.0.1)
 
 BUNDLED WITH
    2.4.19
