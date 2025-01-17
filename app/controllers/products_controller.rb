@@ -3,8 +3,7 @@ class ProductsController < ApplicationController
 
   def import 
     ProductsExcelImporter.new(params[:file]).import
-
-    redirect_to products_path, notice: "Excel carga productos realizado exitosamente"
+    redirect_to products_path, notice: "Proceso de carga Excel carga completado"
   end
 
   # GET /products or /products.json
