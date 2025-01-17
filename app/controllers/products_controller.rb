@@ -1,6 +1,12 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
+  def import 
+    ProductsExcelImporter.new(params[:file]).import
+
+    redirect_to products_path, notice: "Excel carga productos realizado exitosamente"
+  end
+
   # GET /products or /products.json
   def index
     @products = Product.order(created_at: :desc).paginate(page: params[:page], per_page: 10)

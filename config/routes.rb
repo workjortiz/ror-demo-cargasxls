@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products do 
+    collection { post :import }
+  end
+
   resources :unit_measures
   resources :brands
   resources :countries

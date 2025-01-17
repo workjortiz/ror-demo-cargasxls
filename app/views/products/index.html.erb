@@ -10,6 +10,11 @@
   <%= will_paginate @products, :previous_label => t("will_paginate.previous_label"), :next_label => t("will_paginate.next_label"), :container => false %>
 </div>
 
+<%= form_with(url: import_products_path, local: true, multipart: true) do |form| %>
+  <%= form.file_field :file %>
+  <%= form.submit "Importar" %>
+<% end %>
+
 
 <table id="codes-table" class="display">
   <thead>
