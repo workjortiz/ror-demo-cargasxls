@@ -18,7 +18,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Brand", with: @product.brand_id
     fill_in "Description", with: @product.description
     fill_in "Long code", with: @product.long_code
-    fill_in "Shot code", with: @product.shot_code
+    fill_in "Short code", with: @product.short_code
     fill_in "Unit measure", with: @product.unit_measure_id
     click_on "Create Product"
 
@@ -34,7 +34,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Brand", with: @product.brand_id
     fill_in "Description", with: @product.description
     fill_in "Long code", with: @product.long_code
-    fill_in "Shot code", with: @product.shot_code
+    fill_in "Short code", with: @product.short_code
     fill_in "Unit measure", with: @product.unit_measure_id
     click_on "Update Product"
 
