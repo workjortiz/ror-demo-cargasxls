@@ -2,15 +2,37 @@
 
 <% content_for :title, "Products" %>
 
+<%= link_to "New product", new_product_path %>
+
 <h1>Products</h1>
 
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
+<div class="digg_pagination">
+  <%= will_paginate @products, :previous_label => t("will_paginate.previous_label"), :next_label => t("will_paginate.next_label"), :container => false %>
 </div>
 
-<%= link_to "New product", new_product_path %>
+
+<table id="codes-table" class="display">
+  <thead>
+    <tr>
+      <th>Long Code</th>
+      <th>Description</th>
+      <th>Unit Measure</th>
+      <th>Created</th>
+      <th>Last Updated</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.long_code %></td>
+        <td><%= product.description %></td>
+        <td><%= product.unit_measure.iso_code %></td>
+        <td><%= product.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td><%= product.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td><%= link_to 'Show', product_path(product), class: 'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
