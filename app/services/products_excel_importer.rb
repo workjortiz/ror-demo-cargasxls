@@ -19,12 +19,14 @@ class ProductsExcelImporter
             brand = Brand.find_by_code(row_data[1].upcase)
             if !brand.present?
                 error_log << "No encontrado codigo marca #{row_data[1]} en la linea: #{iteration_row.to_i}"
+                puts "<<!!!>> ERROR [1001] - BY BRAND NOT FOUND"
                 flag_process_row = false
             end
 
             um = UnitMeasure.find_by_iso_code(row_data[2].upcase)
             if !um.present?
                 error_log << "No encontrado unidad de medida #{row_data[1]} en la linea: #{iteration_row.to_i}"
+                puts "<<!!!>> ERROR [1002] - BY UNIT MEASURE NOT FOUND"
                 flag_process_row = false
             end
 
@@ -37,7 +39,12 @@ class ProductsExcelImporter
                 new_product.base64_code = SecureRandom.base64(10)
                 new_product.unit_measure = um
                 new_product.brand = brand
-                new_product.save
+                if !new_product.eval_exist
+                    new_product.save
+                else
+                    error_log << "Registro previamente registrado #{row_data[1]} en la linea: #{iteration_row.to_i}"
+                    puts "<<!!!>>  ERROR [2001] - PRODUCT PREVIOUSLY CREATED"
+                end
             end
 
         end
