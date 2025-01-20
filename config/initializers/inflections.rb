@@ -17,7 +17,5 @@
 
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
-
     inflect.irregular "param", "params"
-
 end

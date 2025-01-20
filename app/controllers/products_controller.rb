@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
-  def import 
+  def import
     ProductsExcelImporter.new(params[:file]).import
     redirect_to products_path, notice: "Proceso de carga Excel carga completado"
   end
