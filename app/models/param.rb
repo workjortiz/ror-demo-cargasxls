@@ -1,4 +1,6 @@
 class Param < ApplicationRecord
+
+    #TEST MERGE
     def self.generate_nn(model_name)
         this_param = Param.find_by_name(model_name)
         cc = 0
