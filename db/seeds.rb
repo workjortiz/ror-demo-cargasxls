@@ -18,6 +18,8 @@
 # ISO COUNTRIES: https://www.iban.com/country-codes
 # DIAL REGION CODE: https://countrycode.org/
 
+# TERMINAL COMMAND
+# rake db:seed
 
 Product.destroy_all
 Brand.destroy_all

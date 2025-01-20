@@ -15,9 +15,6 @@ class ProductsExcelImporter
         (2..spreadsheet.last_row).each do |iteration_row|
             flag_process_row = true
             row_data = spreadsheet.row(iteration_row)
-            puts row_data[0]
-            puts row_data[1]
-            puts row_data[2]
 
             brand = Brand.find_by_code(row_data[1].upcase)
             if !brand.present?
