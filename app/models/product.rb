@@ -2,7 +2,6 @@ class Product < ApplicationRecord
   belongs_to :brand
   belongs_to :unit_measure
 
-
   def eval_exist
     exist_product = Product.where(description: self.description, brand: self.brand, unit_measure: self.unit_measure).first
     exist_product.present?
