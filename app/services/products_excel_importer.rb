@@ -44,8 +44,6 @@ class ProductsExcelImporter
                     puts "<<!!!>>  ERROR [2001] - PRODUCT PREVIOUSLY CREATED"
                 end
             end
-
         end
     end
 end
-
