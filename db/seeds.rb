@@ -50,158 +50,157 @@ c_mex = Country.find_by_iso_code("MEX")
 c_gtm = Country.find_by_iso_code("GTM")
 
 Brand.create([
-    {name: "LAS PUSUSAS", code: "SC0001", country: c_slv},
-    {name: "TIPICOS", code: "SR0002", country: c_slv},
-    {name: "POLLERIA", code: "MR0001", country: c_mex},
-    {name: "PICANTE, S.A.", code: "MC0001", country: c_mex},
-    {name: "HARINA Y MASAPAN", code: "MC0002", country: c_mex},
+    {name: "LAS PUSUSAS", code: "SC01", country: c_slv},
+    {name: "TIPICOS", code: "SR02", country: c_slv},
+    {name: "POLLERIA", code: "MR01", country: c_mex},
+    {name: "PICANTE, S.A.", code: "MC01", country: c_mex},
+    {name: "HARINA Y MASAPAN", code: "MC02", country: c_mex},
     {name: "TEXMEX", code: "MC0003", country: c_mex},
-    {name: "CENTRO COMESTIBLE", code: "GD0001", country: c_gtm},
+    {name: "CENTRO COMESTIBLE", code: "GD01", country: c_gtm},
 ])
 
-b_001 = Brand.find_by_code("SC0001")
-b_002 = Brand.find_by_code("SR0002")
-b_003 = Brand.find_by_code("MR0001")
-b_004 = Brand.find_by_code("MC0001")
-b_005 = Brand.find_by_code("MC0002")
-b_006 = Brand.find_by_code("GD0001")
+b_001 = Brand.find_by_code("SC01")
+b_002 = Brand.find_by_code("SR02")
+b_003 = Brand.find_by_code("MR01")
+b_004 = Brand.find_by_code("MC01")
+b_005 = Brand.find_by_code("MC02")
+b_006 = Brand.find_by_code("GD01")
 
-Product.create([
-    {
-        short_code: b_004.id*1000+1, 
-        long_code: "MXMC000U1001",
-        description: "BOTELLA PICANTE SALSA ROJA 200ML",
-        base64_code: SecureRandom.base64(10),
-        brand: b_004,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_004.id*1100+1, 
-        long_code: "MXMC000C1001",
-        description: "BOTELLA PICANTE SALSA ROJA 200ML",
-        base64_code: SecureRandom.base64(10),
-        brand: b_004,
-        unit_measure: um_cjs
-    },
-    {
-        short_code: b_004.id*1000+2, 
-        long_code: "MXMC000U1002",
-        description: "BOTELLA PICANTE SALSA VERDE 200ML",
-        base64_code: SecureRandom.base64(10),
-        brand: b_004,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_004.id*1100+2, 
-        long_code: "MXMC000C1002",
-        description: "BOTELLA PICANTE SALSA VERDE 200ML",
-        base64_code: SecureRandom.base64(10),
-        brand: b_004,
-        unit_measure: um_cjs
-    },
-    {
-        short_code: b_004.id*1000+3, 
-        long_code: "MXMC000U1003",
-        description: "BOTELLA PICANTE SALSA VERDE 500ML",
-        base64_code: SecureRandom.base64(10),
-        brand: b_004,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_001.id*1000+1, 
-        long_code: "SVSC000U1001",
-        description: "PACK PUPUSAS CHICHARRON 12 UNIDADES",
-        base64_code: SecureRandom.base64(10),
-        brand: b_001,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_001.id*1000+2, 
-        long_code: "SVSC000U1002",
-        description: "PACK PUPUSAS QUESO 12 UNIDADES",
-        base64_code: SecureRandom.base64(10),
-        brand: b_001,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_001.id*1000+3, 
-        long_code: "SVSC000U1003",
-        description: "PACK PUPUSAS QUESO 24 UNIDADES + 2 EXTRA",
-        base64_code: SecureRandom.base64(10),
-        brand: b_001,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_005.id*1000+1, 
-        long_code: "MXMC000U1001",
-        description: "BOLSA DE HARINA 2KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_005,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_005.id*1000+2, 
-        long_code: "MXMC000U1002",
-        description: "BOLSA DE HARINA 5KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_005,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_005.id*1000+3, 
-        long_code: "MXMC000U2001",
-        description: "BOLSA DE HARINA INTEGRAL 1KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_005,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_005.id*1100+3, 
-        long_code: "MXMC000C2001",
-        description: "BOLSA DE HARINA INTEGRAL 1KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_005,
-        unit_measure: um_cjs
-    },
-    {
-        short_code: b_003.id*1000+1, 
-        long_code: "MXMR000U1001",
-        description: "BOLSA POLLO CONGELADO 1KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_003,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_003.id*1000+2, 
-        long_code: "MXMR000U1002",
-        description: "BOLSA POLLO CONGELADO 3KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_003,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_003.id*1000+3, 
-        long_code: "MXMR000U1003",
-        description: "BOLSA POLLO CONGELADO 5KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_003,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_003.id*1000+4, 
-        long_code: "MXMR000U2001",
-        description: "BOLSA POLLO CONGELADO EMPANIZADO 2KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_003,
-        unit_measure: um_und
-    },
-    {
-        short_code: b_003.id*1000+5, 
-        long_code: "MXMR000U2002",
-        description: "BOLSA POLLO CONGELADO EMPANIZADO 5KG",
-        base64_code: SecureRandom.base64(10),
-        brand: b_003,
-        unit_measure: um_und
-    }
-])
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_004,um_und)),
+    description: "BOTELLA PICANTE SALSA ROJA 200ML",
+    base64_code: SecureRandom.base64(10),
+    brand: b_004,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_004,um_cjs)),
+    description: "BOTELLA PICANTE SALSA ROJA 200ML",
+    base64_code: SecureRandom.base64(10),
+    brand: b_004,
+    unit_measure: um_cjs
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_004,um_und)),
+    description: "BOTELLA PICANTE SALSA VERDE 200ML",
+    base64_code: SecureRandom.base64(10),
+    brand: b_004,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_004,um_cjs)),
+    description: "BOTELLA PICANTE SALSA VERDE 200ML",
+    base64_code: SecureRandom.base64(10),
+    brand: b_004,
+    unit_measure: um_cjs
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_004,um_und)),
+    description: "BOTELLA PICANTE SALSA VERDE 500ML",
+    base64_code: SecureRandom.base64(10),
+    brand: b_004,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_001,um_und)),
+    description: "PACK PUPUSAS CHICHARRON 12 UNIDADES",
+    base64_code: SecureRandom.base64(10),
+    brand: b_001,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_001,um_und)),
+    description: "PACK PUPUSAS QUESO 12 UNIDADES",
+    base64_code: SecureRandom.base64(10),
+    brand: b_001,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_001,um_und)),
+    description: "PACK PUPUSAS QUESO 24 UNIDADES + 2 EXTRA",
+    base64_code: SecureRandom.base64(10),
+    brand: b_001,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_005,um_und)),
+    description: "BOLSA DE HARINA 2KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_005,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_005,um_und)),
+    description: "BOLSA DE HARINA 5KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_005,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_005,um_und)),
+    description: "BOLSA DE HARINA INTEGRAL 1KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_005,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_005,um_cjs)),
+    description: "BOLSA DE HARINA INTEGRAL 1KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_005,
+    unit_measure: um_cjs
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_003,um_und)),
+    description: "BOLSA POLLO CONGELADO 1KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_003,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_003,um_und)),
+    description: "BOLSA POLLO CONGELADO 3KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_003,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_003,um_und)),
+    description: "BOLSA POLLO CONGELADO 5KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_003,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_003,um_und)),
+    description: "BOLSA POLLO CONGELADO EMPANIZADO 2KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_003,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_003,um_und)),
+    description: "BOLSA POLLO CONGELADO EMPANIZADO 5KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_003,
+    unit_measure: um_und
+})
+
 

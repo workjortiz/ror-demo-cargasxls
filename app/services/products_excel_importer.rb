@@ -31,8 +31,8 @@ class ProductsExcelImporter
             if flag_process_row
                 ref = Product.where(brand: brand.id).maximum(:short_code)
                 new_product = Product.new
-                new_product.short_code = ref+1
-                new_product.long_code = "" + brand.country.iso_code + brand.code[0..1] + um.iso_code[0] + new_product.short_code.to_s
+                new_product.short_code = (Param.generate_nn("NN_PRODUCTS"))
+                new_product.long_code = Product.generate_long_code(brand,um)
                 new_product.description = row_data[0].upcase
                 new_product.base64_code = SecureRandom.base64(10)
                 new_product.unit_measure = um
