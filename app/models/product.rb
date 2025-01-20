@@ -8,7 +8,7 @@ class Product < ApplicationRecord
     exist_product.present?
   end
 
-  def self.generate_long_code(brand,um)
+  def self.generate_long_code(brand, um)
     val = Product.where(brand: brand).count
     "" + brand.country.iso_code + brand.code + (100000+val.to_i).to_s + um.iso_code[0]
   end

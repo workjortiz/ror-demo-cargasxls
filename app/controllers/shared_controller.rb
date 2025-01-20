@@ -1,6 +1,4 @@
 class SharedController < ApplicationController
-
-    def home
-        
+    def home 
     end
 end

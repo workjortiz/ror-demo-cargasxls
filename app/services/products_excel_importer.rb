@@ -1,13 +1,11 @@
-require 'roo'
+require "roo"
 
 class ProductsExcelImporter
-
     def initialize(file)
         @file = file
     end
 
     def import
-
         error_log = Array.new
 
         spreadsheet = Roo::Spreadsheet.open(@file.path)
@@ -34,7 +32,7 @@ class ProductsExcelImporter
                 ref = Product.where(brand: brand.id).maximum(:short_code)
                 new_product = Product.new
                 new_product.short_code = (Param.generate_nn("NN_PRODUCTS"))
-                new_product.long_code = Product.generate_long_code(brand,um)
+                new_product.long_code = Product.generate_long_code(brand, um)
                 new_product.description = row_data[0].upcase
                 new_product.base64_code = SecureRandom.base64(10)
                 new_product.unit_measure = um
