@@ -22,8 +22,8 @@
       <th>Long Code</th>
       <th>Description</th>
       <th>Unit Measure</th>
+      <th>Brand</th>
       <th>Created</th>
-      <th>Last Updated</th>
       <th></th>
     </tr>
   </thead>
@@ -33,8 +33,8 @@
         <td><%= product.long_code %></td>
         <td><%= product.description %></td>
         <td><%= product.unit_measure.iso_code %></td>
+        <td><%= product.brand.name %></td>
         <td><%= product.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
-        <td><%= product.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
         <td><%= link_to 'Show', product_path(product), class: 'btn btn-primary' %></td>
       </tr>
     <% end %>

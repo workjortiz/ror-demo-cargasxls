@@ -29,7 +29,6 @@ class ProductsExcelImporter
             end
 
             if flag_process_row
-                ref = Product.where(brand: brand.id).maximum(:short_code)
                 new_product = Product.new
                 new_product.short_code = (Param.generate_nn("NN_PRODUCTS"))
                 new_product.long_code = Product.generate_long_code(brand, um)

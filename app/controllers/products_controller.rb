@@ -27,9 +27,13 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    @product.short_code = (Param.generate_nn("NN_PRODUCTS"))
+    @product.long_code = Product.generate_long_code(@product.brand, @product.unit_measure)
+    @product.base64_code = SecureRandom.base64(10)
+
 
     respond_to do |format|
-      if @product.save
+      if !@product.eval_exist && @product.save
         format.html { redirect_to @product, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
