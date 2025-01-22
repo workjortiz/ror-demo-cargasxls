@@ -5,6 +5,19 @@ class ProductsExcelImporter
         @file = file
     end
 
+    def template
+        format.xlsx {
+            package = Axlsx::Package.new
+            wb = package.workbook
+
+            wb.add_worksheet(name: "Carga Masiva Productos") do |sheet|
+                sheet.add_row["Description","Brand Code","Unit Measure Code"]
+            end
+
+            send_data package.to_stream.read, filename: "loaddata-products.xlsx", type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+    end
+
     def import
         error_log = Array.new
 

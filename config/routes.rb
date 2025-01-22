@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :params
   resources :products do
     collection { post :import }
+    get :template
   end
 
   resources :unit_measures
