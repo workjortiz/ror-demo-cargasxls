@@ -25,7 +25,7 @@ gem "jquery-datatables-rails", "3.4.0"
 gem "will_paginate", "4.0.1"
 
 gem "roo", "2.10.1"
-gem "activerecord-import", "2.0.0"
+gem "activerecord-import", "2.1.0"
 
 # ---[CUSTOM]---
 
