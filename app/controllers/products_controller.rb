@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if !@product.eval_exist && @product.save
-        format.json { render :show, status: :created, location: @product }
+        format.html { redirect_to @product, notice: "Product was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
