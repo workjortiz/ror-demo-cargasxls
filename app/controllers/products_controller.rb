@@ -2,8 +2,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
   def import
-    ProductsExcelImporter.new(params[:file]).import
-    redirect_to products_path, notice: "Proceso de carga Excel carga completado"
+    if params[:file].present?
+      ProductsExcelImporter.new(params[:file]).import
+      redirect_to products_path, notice: "Proceso de carga Excel carga completado"
+    else
+      redirect_to products_path, alert: "No hay archivo adjunto"
+    end
   end
 
   # GET /products or /products.json
@@ -27,14 +31,16 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    @product.description = @product.description.upcase
+    @product.short_code = (Param.generate_nn("NN_PRODUCTS"))
+    @product.long_code = Product.generate_long_code(@product.brand, @product.unit_measure)
+    @product.base64_code = SecureRandom.base64(10)
 
     respond_to do |format|
-      if @product.save
+      if !@product.eval_exist && @product.save
         format.html { redirect_to @product, notice: "Product was successfully created." }
-        format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end

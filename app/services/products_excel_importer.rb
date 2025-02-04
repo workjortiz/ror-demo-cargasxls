@@ -29,11 +29,10 @@ class ProductsExcelImporter
             end
 
             if flag_process_row
-                ref = Product.where(brand: brand.id).maximum(:short_code)
                 new_product = Product.new
+                new_product.description = row_data[0].upcase
                 new_product.short_code = (Param.generate_nn("NN_PRODUCTS"))
                 new_product.long_code = Product.generate_long_code(brand, um)
-                new_product.description = row_data[0].upcase
                 new_product.base64_code = SecureRandom.base64(10)
                 new_product.unit_measure = um
                 new_product.brand = brand

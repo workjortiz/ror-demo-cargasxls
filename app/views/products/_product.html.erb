@@ -1,32 +1,18 @@
 <div id="<%= dom_id product %>">
   <p>
-    <strong>Short code:</strong>
-    <%= product.short_code %>
+    <strong>Code:</strong> (<%= product.short_code %>) <%= product.long_code %>
   </p>
-
   <p>
-    <strong>Long code:</strong>
-    <%= product.long_code %>
+    <strong>Brand:</strong>
+    <%= product.brand.name %>
   </p>
-
   <p>
     <strong>Description:</strong>
     <%= product.description %>
   </p>
-
-  <p>
-    <strong>Base code64:</strong>
-    <%= product.base64_code %>
-  </p>
-
-  <p>
-    <strong>Brand:</strong>
-    <%= product.brand_id %>
-  </p>
-
   <p>
     <strong>Unit measure:</strong>
-    <%= product.unit_measure_id %>
+    <%= product.unit_measure.name %>
   </p>
 
 </div>
