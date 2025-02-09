@@ -9,10 +9,14 @@ class ProductsController < ApplicationController
       redirect_to products_path, alert: "No hay archivo adjunto"
     end
   end
-
+  
   # GET /products or /products.json
   def index
     @products = Product.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /products/1 or /products/1.json

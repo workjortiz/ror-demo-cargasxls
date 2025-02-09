@@ -4,6 +4,7 @@
 <% content_for :title, "Products" %>
 
 <%= link_to "New product", new_product_path %>
+<%= link_to "Get Excel Template", products_path(format: "xlsx") %>
 
 <h1>Products</h1>
 
