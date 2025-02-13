@@ -1,8 +1,15 @@
 <p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
 
 <% content_for :title, "Products" %>
 
 <%= link_to "New product", new_product_path %>
+<%= link_to "Get Excel Template", products_path(format: "xlsx") %>
+
+<%= form_with(url: import_products_path, local: true, multipart: true) do |form| %>
+  <%= form.file_field :file %>
+  <%= form.submit "Importar" %>
+<% end %>
 
 <h1>Products</h1>
 
@@ -10,20 +17,14 @@
   <%= will_paginate @products, :previous_label => t("will_paginate.previous_label"), :next_label => t("will_paginate.next_label"), :container => false %>
 </div>
 
-<%= form_with(url: import_products_path, local: true, multipart: true) do |form| %>
-  <%= form.file_field :file %>
-  <%= form.submit "Importar" %>
-<% end %>
-
-
 <table id="codes-table" class="display">
   <thead>
     <tr>
       <th>Long Code</th>
       <th>Description</th>
       <th>Unit Measure</th>
+      <th>Brand</th>
       <th>Created</th>
-      <th>Last Updated</th>
       <th></th>
     </tr>
   </thead>
@@ -33,8 +34,8 @@
         <td><%= product.long_code %></td>
         <td><%= product.description %></td>
         <td><%= product.unit_measure.iso_code %></td>
+        <td><%= product.brand.name %></td>
         <td><%= product.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
-        <td><%= product.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
         <td><%= link_to 'Show', product_path(product), class: 'btn btn-primary' %></td>
       </tr>
     <% end %>

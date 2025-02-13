@@ -1,0 +1,6 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Products") do |sheet|
+  my_style = sheet.styles.add_style(b: true, bg_color: "FFCC33", fg_color: "000000")
+  sheet.add_row ["Description", "Brand", "Unit Measure"], :style => my_style
+end
+

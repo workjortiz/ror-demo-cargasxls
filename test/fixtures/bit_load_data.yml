@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: MyString
+  model: MyString
+  action: MyString
+  data1: MyString
+  data2: MyString
+  data3: MyString
+  value1: 1
+  value2: 1
+  value3: 1
+
+two:
+  event: MyString
+  model: MyString
+  action: MyString
+  data1: MyString
+  data2: MyString
+  data3: MyString
+  value1: 1
+  value2: 1
+  value3: 1

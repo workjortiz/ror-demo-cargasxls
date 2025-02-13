@@ -5,19 +5,6 @@ class ProductsExcelImporter
         @file = file
     end
 
-    def template
-        format.xlsx {
-            package = Axlsx::Package.new
-            wb = package.workbook
-
-            wb.add_worksheet(name: "Carga Masiva Productos") do |sheet|
-                sheet.add_row["Description","Brand Code","Unit Measure Code"]
-            end
-
-            send_data package.to_stream.read, filename: "loaddata-products.xlsx", type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        }
-    end
-
     def import
         error_log = Array.new
 
@@ -41,12 +28,17 @@ class ProductsExcelImporter
                 flag_process_row = false
             end
 
+            if  !row_data[0].present?
+                error_log << "Descripción no ingresada en la linea: #{iteration_row.to_i}"
+                puts "<<!!!>> ERROR [1003] - BY DESCRIPTION NOT FOUND"
+                flag_process_row = false
+            end
+
             if flag_process_row
-                ref = Product.where(brand: brand.id).maximum(:short_code)
                 new_product = Product.new
+                new_product.description = row_data[0].upcase
                 new_product.short_code = (Param.generate_nn("NN_PRODUCTS"))
                 new_product.long_code = Product.generate_long_code(brand, um)
-                new_product.description = row_data[0].upcase
                 new_product.base64_code = SecureRandom.base64(10)
                 new_product.unit_measure = um
                 new_product.brand = brand

@@ -1,14 +1,22 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show destroy ]
 
   def import
-    ProductsExcelImporter.new(params[:file]).import
-    redirect_to products_path, notice: "Proceso de carga Excel carga completado"
+    if params[:file].present?
+      ProductsExcelImporter.new(params[:file]).import
+      redirect_to products_path, notice: "Proceso de carga Excel carga completado"
+    else
+      redirect_to products_path, alert: "No hay archivo adjunto"
+    end
   end
-
+  
   # GET /products or /products.json
   def index
     @products = Product.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /products/1 or /products/1.json
@@ -20,37 +28,23 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  # GET /products/1/edit
-  def edit
-  end
-
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    @product.description = @product.description.upcase
+    @product.short_code = (Param.generate_nn("NN_PRODUCTS"))
+    @product.long_code = Product.generate_long_code(@product.brand, @product.unit_measure)
+    @product.base64_code = SecureRandom.base64(10)
 
     respond_to do |format|
-      if @product.save
+      if !@product.eval_exist && @product.save
         format.html { redirect_to @product, notice: "Product was successfully created." }
-        format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /products/1 or /products/1.json
-  def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: "Product was successfully updated." }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /products/1 or /products/1.json
   def destroy
