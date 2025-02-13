@@ -25,6 +25,7 @@ Product.destroy_all
 Brand.destroy_all
 Country.destroy_all
 UnitMeasure.destroy_all
+BitLoadData.destroy_all
 
 Country.create([
     {name: "MEXICO", iso_code: "MEX", region_code: 52},
