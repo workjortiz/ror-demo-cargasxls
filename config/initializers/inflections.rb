@@ -18,4 +18,5 @@
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
     inflect.irregular "param", "params"
+    inflect.irregular "bit_load_data", "bit_load_data"
 end
