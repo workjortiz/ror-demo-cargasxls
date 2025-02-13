@@ -28,6 +28,12 @@ class ProductsExcelImporter
                 flag_process_row = false
             end
 
+            if  !row_data[0].present?
+                error_log << "Descripción no ingresada en la linea: #{iteration_row.to_i}"
+                puts "<<!!!>> ERROR [1003] - BY DESCRIPTION NOT FOUND"
+                flag_process_row = false
+            end
+
             if flag_process_row
                 new_product = Product.new
                 new_product.description = row_data[0].upcase
