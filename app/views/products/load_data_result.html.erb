@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<% if @array_bit_ok_log.present? %>
+<h3>Se ha realizado carga existosa de <%= @array_bit_ok_log.count %> registros</h3>
+<% end %>
+
+<% if @array_bit_error_log.present? %>
+  <h3>Carga Realizada con errores</h3>
+  <table id="error-log-table" class="display">
+    <tbody>
+      <% @array_bit_error_log.each do |this_bit| %>
+        <tr><td><%= this_bit.data3 %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %> 
+
+<% if params[:return] == 'bit' %>
+    <%= link_to "History Load Data", products_load_data_index_path %>
+<% else %> 
+    <%= link_to "Back to products", products_path() %>
+<% end %>

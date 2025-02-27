@@ -1,0 +1,25 @@
+<h1>Load Data History</h1>
+
+<div class="digg_pagination">
+  <%= will_paginate @bit_history, :previous_label => t("will_paginate.previous_label"), :next_label => t("will_paginate.next_label"), :container => false %>
+</div>
+
+<%= link_to "Back to products", products_path(:page => params[:page].present? ? params[:page] : nil) %>
+
+<table id="codes-table" class="display">
+  <thead>
+    <tr>
+      <th>Load Data Instace</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bit_history.each do |this_bit| %>
+      <tr>
+        <td><%= this_bit.data1 %></td>
+        <td><%= link_to 'Show', products_load_data_result_path(:instance_load => this_bit.data1, :return => "bit"), class: 'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
