@@ -10,16 +10,6 @@
 <p style="color: red"><%= alert %></p>
 
 <% content_for :title, "Products" %>
-
-<div class="solid-border">
-<table>
-    <tbody>
-      <tr><td>
-        <%= link_to "Create New Product (+)", new_product_path %>
-      </td></tr>
-    </tbody>
-  </table>
-</div>
 <div class="solid-border">
   <table>
     <tbody>
@@ -34,6 +24,7 @@
 </div>
 
 <h1>Products</h1>
+<%= link_to "Add New Product (+)", new_product_path %>
 
 <div class="digg_pagination">
   <%= will_paginate @products, :previous_label => t("will_paginate.previous_label"), :next_label => t("will_paginate.next_label"), :container => false %>
