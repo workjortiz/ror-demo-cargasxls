@@ -1,2 +1,3 @@
 class BitLoadData < ApplicationRecord
+
 end

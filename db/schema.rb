@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_20_154441) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_13_035201) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bit_load_data", force: :cascade do |t|
+    t.string "event"
+    t.string "model"
+    t.string "action"
+    t.string "data1"
+    t.string "data2"
+    t.string "data3"
+    t.integer "value1"
+    t.integer "value2"
+    t.integer "value3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brands", force: :cascade do |t|
     t.string "name", limit: 120
