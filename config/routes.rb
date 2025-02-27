@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     collection { 
       post :import 
     }
+    
   end
+  get "product/info" => "products#info", :as => "product_info"
 
   resources :unit_measures
   resources :brands

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show destroy ]
+  before_action :set_product, only: %i[ destroy ]
 
   def import
     if params[:file].present?
@@ -21,8 +21,8 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1 or /products/1.json
-  def show
+  def info
+    @product = Product.find_by_base64_code(params[:access])
   end
 
   # GET /products/new
