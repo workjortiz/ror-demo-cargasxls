@@ -6,6 +6,21 @@
 <%= link_to "New product", new_product_path %>
 <%= link_to "Get Excel Template", products_path(format: "xlsx") %>
 
+<% if @array_bit_ok_log.present? %>
+<h3>Se ha realizado carga existosa de <%= @array_bit_ok_log.count %></h3>
+<% end %>
+
+<% if @array_bit_error_log.present? %>
+  <h3>Carga Realizada con errores</h3>
+  <table id="error-log-table" class="display">
+    <tbody>
+      <% @array_bit_error_log.each do |this_bit| %>
+        <tr><td><%= this_bit.data3 %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %> 
+
 <%= form_with(url: import_products_path, local: true, multipart: true) do |form| %>
   <%= form.file_field :file %>
   <%= form.submit "Import" %>

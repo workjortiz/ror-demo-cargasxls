@@ -49,6 +49,7 @@ class ProductsExcelImporter
                 new_product.brand = brand
                 if !new_product.eval_exist
                     new_product.save
+                    BitLoadData.create(:event => "LOAD_EXCEL", :model => "PRODUCTS", :action => "NEW/COMPLETE", :data1 => instance_load, :data2 => new_product.long_code  , :data3 => new_product.description , :value1 => iteration_row.to_i).save
                 else
                     error_log = "Registro previamente registrado #{row_data[1]} en la linea: #{iteration_row.to_i}"
                     error_code = "ERROR [2001] - PRODUCT PREVIOUSLY CREATED"
@@ -57,5 +58,7 @@ class ProductsExcelImporter
                 end
             end
         end
+
+        instance_load
     end
 end
