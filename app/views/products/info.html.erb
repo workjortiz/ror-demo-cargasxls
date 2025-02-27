@@ -3,7 +3,7 @@
 <%= render @product %>
 
 <div>
-  <%= link_to "Back to products", products_path %>
+  <%= link_to "Back to products", products_path(:page => params[:page].present? ? params[:page] : nil) %>
 
   <%= button_to "Destroy this product", @product, method: :delete %>
 </div>

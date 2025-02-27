@@ -69,6 +69,62 @@ b_006 = Brand.find_by_code("GD01")
 
 Product.create({
     short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_006,um_und)),
+    description: "ENLATADO ELOTITOS 8onz",
+    base64_code: SecureRandom.base64(10),
+    brand: b_006,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_006,um_und)),
+    description: "ENLATADO MIX VERDURA 8onz",
+    base64_code: SecureRandom.base64(10),
+    brand: b_006,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_006,um_und)),
+    description: "ENLATADO ZANAHORITA CUBITOS 8onz",
+    base64_code: SecureRandom.base64(10),
+    brand: b_006,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_002,um_und)),
+    description: "BOLSA ENSALADA REPOLLO 12onz",
+    base64_code: SecureRandom.base64(10),
+    brand: b_002,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_002,um_und)),
+    description: "BOLSA JULIANAS ZANAHORIA 12onz",
+    base64_code: SecureRandom.base64(10),
+    brand: b_002,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_002,um_und)),
+    description: "BOLSA AJOS PELADOS 3onz",
+    base64_code: SecureRandom.base64(10),
+    brand: b_002,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_002,um_und)),
+    description: "BANDEJA BROCOLI CORTADO 10onz",
+    base64_code: SecureRandom.base64(10),
+    brand: b_002,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
     long_code: (Product.generate_long_code(b_004,um_und)),
     description: "BOTELLA PICANTE SALSA ROJA 200ML",
     base64_code: SecureRandom.base64(10),
@@ -126,7 +182,31 @@ Product.create({
 Product.create({
     short_code: (Param.generate_nn("NN_PRODUCTS")), 
     long_code: (Product.generate_long_code(b_001,um_und)),
+    description: "PACK PUPUSAS MIXTA 12 UNIDADES",
+    base64_code: SecureRandom.base64(10),
+    brand: b_001,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_001,um_und)),
     description: "PACK PUPUSAS QUESO 24 UNIDADES + 2 EXTRA",
+    base64_code: SecureRandom.base64(10),
+    brand: b_001,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_001,um_und)),
+    description: "PACK PUPUSAS CHICHARRON 24 UNIDADES + 2 EXTRA",
+    base64_code: SecureRandom.base64(10),
+    brand: b_001,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_001,um_und)),
+    description: "PACK PUPUSAS MIXTA 24 UNIDADES + 2 EXTRA",
     base64_code: SecureRandom.base64(10),
     brand: b_001,
     unit_measure: um_und
@@ -151,6 +231,14 @@ Product.create({
     short_code: (Param.generate_nn("NN_PRODUCTS")), 
     long_code: (Product.generate_long_code(b_005,um_und)),
     description: "BOLSA DE HARINA INTEGRAL 1KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_005,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_005,um_und)),
+    description: "BOLSA DE HARINA INTEGRAL 2.5KG",
     base64_code: SecureRandom.base64(10),
     brand: b_005,
     unit_measure: um_und
@@ -183,6 +271,14 @@ Product.create({
     short_code: (Param.generate_nn("NN_PRODUCTS")), 
     long_code: (Product.generate_long_code(b_003,um_und)),
     description: "BOLSA POLLO CONGELADO 5KG",
+    base64_code: SecureRandom.base64(10),
+    brand: b_003,
+    unit_measure: um_und
+})
+Product.create({
+    short_code: (Param.generate_nn("NN_PRODUCTS")), 
+    long_code: (Product.generate_long_code(b_003,um_und)),
+    description: "BOLSA POLLO CONGELADO 7.5KG",
     base64_code: SecureRandom.base64(10),
     brand: b_003,
     unit_measure: um_und
