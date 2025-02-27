@@ -1,30 +1,37 @@
+<style>
+  .solid-border {
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px;
+  }
+</style>
+
 <p style="color: green"><%= notice %></p>
 <p style="color: red"><%= alert %></p>
 
 <% content_for :title, "Products" %>
 
-<%= link_to "New product", new_product_path %>
-<%= link_to "Get Excel Template", products_path(format: "xlsx") %>
-
-<% if @array_bit_ok_log.present? %>
-<h3>Se ha realizado carga existosa de <%= @array_bit_ok_log.count %></h3>
-<% end %>
-
-<% if @array_bit_error_log.present? %>
-  <h3>Carga Realizada con errores</h3>
-  <table id="error-log-table" class="display">
+<div class="solid-border">
+<table>
     <tbody>
-      <% @array_bit_error_log.each do |this_bit| %>
-        <tr><td><%= this_bit.data3 %></td></tr>
-      <% end %>
+      <tr><td>
+        <%= link_to "Create New Product (+)", new_product_path %>
+      </td></tr>
     </tbody>
   </table>
-<% end %> 
-
-<%= form_with(url: import_products_path, local: true, multipart: true) do |form| %>
-  <%= form.file_field :file %>
-  <%= form.submit "Import" %>
-<% end %>
+</div>
+<div class="solid-border">
+  <table>
+    <tbody>
+      <tr><td><%= link_to "History Load Data", products_load_data_index_path %></td></tr>
+      <tr><td><%= link_to "Get Upload Excel Template", products_path(format: "xlsx") %></td></tr>
+    </tbody>
+  </table>
+  <%= form_with(url: import_products_path, local: true, multipart: true) do |form| %>
+    <%= form.file_field :file %>
+    <%= form.submit "Import" %>
+  <% end %>
+</div>
 
 <h1>Products</h1>
 
