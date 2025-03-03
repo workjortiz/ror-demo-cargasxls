@@ -30,6 +30,11 @@
   <%= will_paginate @products, :previous_label => t("will_paginate.previous_label"), :next_label => t("will_paginate.next_label"), :container => false %>
 </div>
 
+<div>
+    <%= form_with url: products_path, method: :get do %>
+      <%= text_field_tag "filter",  @filter, placeholder: "Filtrar", class: "inline-block" %>
+    <% end %> 
+</div>
 <table id="codes-table" class="display">
   <thead>
     <tr>

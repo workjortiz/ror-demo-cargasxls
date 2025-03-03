@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
   
   # GET /products or /products.json
   def index
-   @products = Product.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @filter = params["filter"].present? ? params["filter"].upcase : ""
+    @products = Product.where("description LIKE '%#{@filter}%' OR long_code LIKE '%#{@filter}%' ").order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.xlsx
