@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Taxrules" %>
+
+<h1>Taxrules</h1>
+
+<div id="taxrules">
+  <% @taxrules.each do |taxrule| %>
+    <%= render taxrule %>
+    <p>
+      <%= link_to "Show this taxrule", taxrule %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New taxrule", new_taxrule_path %>

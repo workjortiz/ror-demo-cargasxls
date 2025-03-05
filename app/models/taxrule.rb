@@ -1,0 +1,2 @@
+class Taxrule < ApplicationRecord
+end

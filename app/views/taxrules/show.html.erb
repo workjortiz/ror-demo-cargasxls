@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @taxrule %>
+
+<div>
+  <%= link_to "Edit this taxrule", edit_taxrule_path(@taxrule) %> |
+  <%= link_to "Back to taxrules", taxrules_path %>
+
+  <%= button_to "Destroy this taxrule", @taxrule, method: :delete %>
+</div>

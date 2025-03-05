@@ -9,10 +9,13 @@
 #   end
 
 # [MODELS]
-# rails g Country name:string iso_code:string region_code:integer
-# rails g Brand name:string code:string country:reference
-# rails g UnitMeasure name:string iso_code:string
-# rails g Product short_code:integer long_code:string description:string base64_code: string brand:reference unit_measure:reference
+# rails g scaffold Country name:string iso_code:string region_code:integer
+# rails g scaffold Brand name:string code:string country:references
+# rails g scaffoldUnitMeasure name:string iso_code:string
+# rails g scaffold Product short_code:integer long_code:string description:string base64_code:string brand:references unit_measure:references
+# rails g scaffold Taxrule name:string code:string value_rule:integer
+# rails g scaffold Currency name:string iso_code:string country:references short_code:string
+# rails g scaffold Client fiscal_name:string comercial_name:string fiscal_address:string comercial_address:string base64_code:string country:references taxrule:references currency:references
 
 # SOURCE
 # ISO COUNTRIES: https://www.iban.com/country-codes

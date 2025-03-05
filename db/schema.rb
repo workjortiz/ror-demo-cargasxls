@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_13_035201) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_05_041736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,12 +47,38 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_13_035201) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.string "fiscal_name", limit: 120
+    t.string "comercial_name", limit: 120
+    t.string "fiscal_address", limit: 120
+    t.string "comercial_address", limit: 120
+    t.string "base64_code", limit: 20
+    t.bigint "country_id", null: false
+    t.bigint "taxrule_id", null: false
+    t.bigint "currency_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_clients_on_country_id"
+    t.index ["currency_id"], name: "index_clients_on_currency_id"
+    t.index ["taxrule_id"], name: "index_clients_on_taxrule_id"
+  end
+
   create_table "countries", force: :cascade do |t|
     t.string "name", limit: 120
     t.string "iso_code", limit: 3
     t.integer "region_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "name", limit: 120
+    t.string "iso_code", limit: 3
+    t.bigint "country_id", null: false
+    t.string "short_code", limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_currencies_on_country_id"
   end
 
   create_table "params", force: :cascade do |t|
@@ -85,6 +111,14 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_13_035201) do
     t.index ["unit_measure_id"], name: "index_products_on_unit_measure_id"
   end
 
+  create_table "taxrules", force: :cascade do |t|
+    t.string "name", limit: 120
+    t.string "code", limit: 5
+    t.integer "value_rule"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "unit_measures", force: :cascade do |t|
     t.string "name", limit: 120
     t.string "iso_code", limit: 3
@@ -93,6 +127,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_13_035201) do
   end
 
   add_foreign_key "brands", "countries"
+  add_foreign_key "clients", "countries"
+  add_foreign_key "clients", "currencies"
+  add_foreign_key "clients", "taxrules"
+  add_foreign_key "currencies", "countries"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "unit_measures"
 end

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :clients
+  resources :currencies
+  resources :taxrules
 
   # Defines the root path route ("/")
   root "shared#home"

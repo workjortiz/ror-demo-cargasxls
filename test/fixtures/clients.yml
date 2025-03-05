@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fiscal_name: MyString
+  comercial_name: MyString
+  fiscal_address: MyString
+  comercial_address: MyString
+  base64_code: MyString
+  country: one
+  taxrule: one
+  currency: one
+
+two:
+  fiscal_name: MyString
+  comercial_name: MyString
+  fiscal_address: MyString
+  comercial_address: MyString
+  base64_code: MyString
+  country: two
+  taxrule: two
+  currency: two
