@@ -1,13 +1,16 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: %i[ show edit update destroy ]
+  before_action :set_client, only: %i[ edit update destroy ]
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
+    @filter = params["filter"].present? ? params["filter"].upcase : ""
+    @clients = Client.where("fiscal_name LIKE '%#{@filter}%' OR comercial_name LIKE '%#{@filter}%' ")
+                    .order(created_at: :desc)
+                    .paginate(page: params[:page], per_page: 10)
   end
 
-  # GET /clients/1 or /clients/1.json
-  def show
+  def info
+    @client = Client.find_by_base64_code(params[:access])
   end
 
   # GET /clients/new
@@ -26,10 +29,8 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: "Client was successfully created." }
-        format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,10 +40,8 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to @client, notice: "Client was successfully updated." }
-        format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
   end

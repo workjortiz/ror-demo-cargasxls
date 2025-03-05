@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
 
   # Custom
+  get "client/info" => "clients#info", :as => "client_info"
+
   get "product/info" => "products#info", :as => "product_info"
   get "products/load-data/result" => "products#load_data_result", :as => "products_load_data_result"
   get "products/load-data/index" => "products#load_data_index", :as => "products_load_data_index"

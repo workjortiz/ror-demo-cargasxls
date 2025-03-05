@@ -10,6 +10,7 @@
 <p style="color: red"><%= alert %></p>
 
 <% content_for :title, "Products" %>
+
 <div class="solid-border">
   <table>
     <tbody>
@@ -32,9 +33,10 @@
 
 <div>
     <%= form_with url: products_path, method: :get do %>
-      <%= text_field_tag "filter",  @filter, placeholder: "Filtrar", class: "inline-block" %>
+      <%= text_field_tag "filter",  @filter, placeholder: "Filter", class: "inline-block" %>
     <% end %> 
 </div>
+
 <table id="codes-table" class="display">
   <thead>
     <tr>

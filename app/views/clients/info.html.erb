@@ -3,8 +3,7 @@
 <%= render @client %>
 
 <div>
-  <%= link_to "Edit this client", edit_client_path(@client) %> |
-  <%= link_to "Back to clients", clients_path %>
+  <%= link_to "Back to clients", clients_path(:page => params[:page].present? ? params[:page] : nil) %>
 
   <%= button_to "Destroy this client", @client, method: :delete %>
 </div>

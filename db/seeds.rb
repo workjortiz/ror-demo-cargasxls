@@ -90,6 +90,17 @@ Client.create({
     currency: m_gtq
 })
 
+Client.create({   
+    fiscal_name: "DOÑA CHONITA", 
+    comercial_name: "TIENDA EL MILAGRO",
+    fiscal_address: "12VA AVENIDA 2-11 ZN 1",
+    comercial_address: "12VA AVENIDA 2-11 ZN 1",
+    base64_code: SecureRandom.base64(10),
+    country: c_gtm,
+    taxrule: tx_gt,
+    currency: m_gtq
+})
+
 UnitMeasure.create([
     {name: "CAJAS", iso_code: "CJS"},
     {name: "UNIDADES", iso_code: "UND"}
