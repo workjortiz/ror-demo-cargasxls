@@ -24,11 +24,27 @@
 # TERMINAL COMMAND
 # rake db:seed
 
+Client.destroy_all
 Product.destroy_all
+
+Currency.destroy_all
 Brand.destroy_all
+
+Taxrule.destroy_all
 Country.destroy_all
 UnitMeasure.destroy_all
+
 BitLoadData.destroy_all
+
+
+
+Taxrule.create([
+    {name: "GT CONTRIBUYENTE IVA", code:"GTI12", value_rule: 12},
+    {name: "MX CONTRIBUYENTE IVA", code:"MXI18", value_rule: 18},
+    {name: "SV CONTRIBUYENTE IVA", code:"SVI13", value_rule: 13}
+])
+
+tx_gt = Taxrule.find_by_code("GTI12")
 
 Country.create([
     {name: "MEXICO", iso_code: "MEX", region_code: 52},
@@ -40,6 +56,40 @@ Country.create([
     {name: "PANAMA", iso_code: "PAN", region_code: 507},
 ])
 
+c_slv = Country.find_by_iso_code("SLV")
+c_mex = Country.find_by_iso_code("MEX")
+c_gtm = Country.find_by_iso_code("GTM")
+
+Currency.create([
+    {name: "QUETZAL", iso_code: "GTQ", country: c_gtm, short_code: "Q"},
+    {name: "PESO MEXICANO", iso_code: "MXN", country: c_mex, short_code: "$"},
+    {name: "DOLARES", iso_code: "DOL", country: c_slv, short_code: "$"}
+])
+
+m_gtq = Currency.find_by_iso_code("GTQ")
+
+Client.create({   
+    fiscal_name: "RODRIGO PEREZ", 
+    comercial_name: "TIENDA LA BENDICION",
+    fiscal_address: "4TA CALLE 0-55 ZN 21",
+    comercial_address: "4TA CALLE 0-55 ZN 21",
+    base64_code: SecureRandom.base64(10),
+    country: c_gtm,
+    taxrule: tx_gt,
+    currency: m_gtq
+})
+
+Client.create({   
+    fiscal_name: "JUAN RAUL RODRIGUEZ", 
+    comercial_name: "TIENDA 24/7",
+    fiscal_address: "9NA CALLE 3-71 ZN 14",
+    comercial_address: "9NA CALLE 4-21 ZN 21",
+    base64_code: SecureRandom.base64(10),
+    country: c_gtm,
+    taxrule: tx_gt,
+    currency: m_gtq
+})
+
 UnitMeasure.create([
     {name: "CAJAS", iso_code: "CJS"},
     {name: "UNIDADES", iso_code: "UND"}
@@ -49,9 +99,7 @@ UnitMeasure.create([
 um_und = UnitMeasure.find_by_iso_code("UND")
 um_cjs = UnitMeasure.find_by_iso_code("CJS")
 
-c_slv = Country.find_by_iso_code("SLV")
-c_mex = Country.find_by_iso_code("MEX")
-c_gtm = Country.find_by_iso_code("GTM")
+
 
 Brand.create([
     {name: "LAS PUSUSAS", code: "SC01", country: c_slv},
