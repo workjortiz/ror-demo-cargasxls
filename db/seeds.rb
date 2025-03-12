@@ -101,6 +101,17 @@ Client.create({
     currency: m_gtq
 })
 
+Client.create({   
+    fiscal_name: "DOÑA CATI", 
+    comercial_name: "SASTRERIA MIXCO",
+    fiscal_address: "ZONA 1 MIXCO",
+    comercial_address: "ZONA 1 MIXCO",
+    base64_code: SecureRandom.base64(10),
+    country: c_gtm,
+    taxrule: tx_gt,
+    currency: m_gtq
+})
+
 UnitMeasure.create([
     {name: "CAJAS", iso_code: "CJS"},
     {name: "UNIDADES", iso_code: "UND"}

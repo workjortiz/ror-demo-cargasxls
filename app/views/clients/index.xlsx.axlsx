@@ -1,0 +1,5 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Clients") do |sheet|
+    my_style = sheet.styles.add_style(b: true, bg_color: "FFCC33", fg_color: "000000")
+    sheet.add_row ["Fiscal Name","Comercial Name", "Fiscal Address", "Comercial Address", "Country", "Tax Rule" ,"Currency"], :style => my_style
+end

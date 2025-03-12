@@ -1,12 +1,22 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ edit update destroy ]
 
+  def import
+    if params[:file].present?
+      ClientsExcelImporter.new(params[:file]).import
+    end
+  end
+
   # GET /clients or /clients.json
   def index
     @filter = params["filter"].present? ? params["filter"].upcase : ""
     @clients = Client.where("fiscal_name LIKE '%#{@filter}%' OR comercial_name LIKE '%#{@filter}%' ")
                     .order(created_at: :desc)
                     .paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def info

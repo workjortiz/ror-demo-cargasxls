@@ -3,6 +3,17 @@
 
 <% content_for :title, "Clients" %>
 
+<div class="solid-border">
+  <table>
+    <tbody>
+      <tr><td><%= link_to "Get Upload Excel Template", clients_path(format: "xlsx") %></td></tr>
+    </tbody>
+  </table>
+  <%= form_with(url: import_clients_path, local: true, multipart: true) do |form| %>
+      <%= form.file_field :file %>
+      <%= form.submit "Import" %>
+  <% end %>
+</div>
 <h1>Clients</h1>
 <%= link_to "Add New Client(+)", new_client_path %>
 
