@@ -1,6 +1,7 @@
 class CreateClients < ActiveRecord::Migration[7.2]
   def change
     create_table :clients do |t|
+      t.integer :short_code
       t.string :fiscal_name, :limit => 120
       t.string :comercial_name, :limit => 120
       t.string :fiscal_address, :limit => 120

@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_05_041736) do
   end
 
   create_table "clients", force: :cascade do |t|
+    t.integer "short_code"
     t.string "fiscal_name", limit: 120
     t.string "comercial_name", limit: 120
     t.string "fiscal_address", limit: 120
