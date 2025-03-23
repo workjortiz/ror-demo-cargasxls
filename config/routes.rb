@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   resources :taxrules
 
   # Custom
-  get "client/info" => "clients#info", :as => "client_info"
+  get "clients/info" => "clients#info", :as => "client_info"
+  get "clients/load-data/result" => "clients#load_data_result", :as => "clients_load_data_result"
+  get "clients/load-data/index" => "clients#load_data_index", :as => "clients_load_data_index"
+
 
   get "product/info" => "products#info", :as => "product_info"
   get "products/load-data/result" => "products#load_data_result", :as => "products_load_data_result"

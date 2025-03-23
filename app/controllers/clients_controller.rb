@@ -3,7 +3,10 @@ class ClientsController < ApplicationController
 
   def import
     if params[:file].present?
-      ClientsExcelImporter.new(params[:file]).import
+      instance_load = ClientsExcelImporter.new(params[:file]).import
+      redirect_to clients_load_data_result_path(:instance_load => instance_load), notice: "Proceso de carga Excel carga completado"
+    else
+      redirect_to clients_path, alert: "No hay archivo adjunto"
     end
   end
 
@@ -17,6 +20,15 @@ class ClientsController < ApplicationController
       format.html
       format.xlsx
     end
+  end
+
+  def load_data_result
+    @array_bit_error_log = params[:instance_load].present? ? BitLoadData.where(event: "LOAD_EXCEL", model: "CLIENTS", action: "NEW/ERROR", data1: params[:instance_load]).order(value1: :desc) : nil
+    @array_bit_ok_log = params[:instance_load].present? ? BitLoadData.where(event: "LOAD_EXCEL", model: "CLIENTS", action: "NEW/COMPLETE", data1: params[:instance_load]).order(value1: :desc) : nil
+  end
+
+  def load_data_index
+    @bit_history = BitLoadData.select("DISTINCT data1").where(event: 'LOAD_EXCEL', model: 'CLIENTS').order("data1 DESC").paginate(page: params[:page], per_page: 10)
   end
 
   def info

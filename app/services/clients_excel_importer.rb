@@ -18,7 +18,7 @@ class ClientsExcelImporter
                 error_log = "No encontrado país con código #{row_data[4]} en la linea: #{iteration_row.to_i}"
                 error_code = "ERROR [1001] - BY COUNTRY NOT FOUND"
                 puts "<<!!!>>  #{error_code}"
-                BitLoadData.create(:event => "LOAD_EXCEL", :model => "CLIENTS", :action => "NEW/ERROR", :data1 => instance_load, data2 => error_code, :data3 => error_log, :value1 => iteration_row.to_i).save
+                BitLoadData.create(:event => "LOAD_EXCEL", :model => "CLIENTS", :action => "NEW/ERROR", :data1 => instance_load, :data2 => error_code, :data3 => error_log, :value1 => iteration_row.to_i).save
                 flag_process_row = false
             end
 
@@ -27,7 +27,7 @@ class ClientsExcelImporter
                 error_log = "No encontrado regla impuesto con código #{row_data[5]} en la linea: #{iteration_row.to_i}"
                 error_code = "ERROR [1002] - BY TAXRULE NOT FOUND"
                 puts "<<!!!>>  #{error_code}"
-                BitLoadData.create(:event => "LOAD_EXCEL", :model => "CLIENTS", :action => "NEW/ERROR", :data1 => instance_load, data2 => error_code, :data3 => error_log, :value1 => iteration_row.to_i).save
+                BitLoadData.create(:event => "LOAD_EXCEL", :model => "CLIENTS", :action => "NEW/ERROR", :data1 => instance_load, :data2 => error_code, :data3 => error_log, :value1 => iteration_row.to_i).save
                 flag_process_row = false
             end
 
@@ -36,7 +36,7 @@ class ClientsExcelImporter
                 error_log = "No encontrado moneda con código #{row_data[6]} en la linea: #{iteration_row.to_i}"
                 error_code = "ERROR [1003] - BY CURRENCY NOT FOUND"
                 puts "<<!!!>>  #{error_code}"
-                BitLoadData.create(:event => "LOAD_EXCEL", :model => "CLIENTS", :action => "NEW/ERROR", :data1 => instance_load, data2 => error_code, :data3 => error_log, :value1 => iteration_row.to_i).save
+                BitLoadData.create(:event => "LOAD_EXCEL", :model => "CLIENTS", :action => "NEW/ERROR", :data1 => instance_load, :data2 => error_code, :data3 => error_log, :value1 => iteration_row.to_i).save
                 flag_process_row = false
             end
 
