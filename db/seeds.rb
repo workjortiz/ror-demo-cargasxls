@@ -69,6 +69,7 @@ Currency.create([
 m_gtq = Currency.find_by_iso_code("GTQ")
 
 Client.create({   
+    short_code: (Param.generate_nn("NN_CLIENTS")), 
     fiscal_name: "RODRIGO PEREZ", 
     comercial_name: "TIENDA LA BENDICION",
     fiscal_address: "4TA CALLE 0-55 ZN 21",
@@ -80,6 +81,7 @@ Client.create({
 })
 
 Client.create({   
+    short_code: (Param.generate_nn("NN_CLIENTS")), 
     fiscal_name: "JUAN RAUL RODRIGUEZ", 
     comercial_name: "TIENDA 24/7",
     fiscal_address: "9NA CALLE 3-71 ZN 14",
@@ -91,6 +93,7 @@ Client.create({
 })
 
 Client.create({   
+    short_code: (Param.generate_nn("NN_CLIENTS")), 
     fiscal_name: "DOÑA CHONITA", 
     comercial_name: "TIENDA EL MILAGRO",
     fiscal_address: "12VA AVENIDA 2-11 ZN 1",
@@ -102,6 +105,7 @@ Client.create({
 })
 
 Client.create({   
+    short_code: (Param.generate_nn("NN_CLIENTS")), 
     fiscal_name: "DOÑA CATI", 
     comercial_name: "SASTRERIA MIXCO",
     fiscal_address: "ZONA 1 MIXCO",
