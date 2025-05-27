@@ -27,7 +27,7 @@ gem "will_paginate", "4.0.1"
 
 # [IMPORT EXCEL FUNCTION]
 gem "roo", "2.10.1"       
-gem "activerecord-import", "2.0.0"
+gem "activerecord-import", "2.2.0"
 
 # [GENERATE EXCEL]
 gem "caxlsx", "4.2.0"
